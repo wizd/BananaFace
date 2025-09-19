@@ -1,0 +1,5 @@
+{
+  "name": "🍌 BananaFace｜ZHO",
+  "description": "An AI-powered portrait tool with Text-to-Image and Image-to-Image modes. Customize portraits with detailed controls, switch between light/dark themes, use a bilingual UI (EN/ZH), and save your creations to a persistent history. Powered by Gemini.",
+  "requestFramePermissions": []
+}
