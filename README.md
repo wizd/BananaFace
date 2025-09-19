@@ -4,14 +4,20 @@
 <img width="1408" height="768" alt="generated-image-1758293106769" src="https://github.com/user-attachments/assets/85f125f5-2495-40f7-ada5-0905f5d05afc" />
 
 
-# 开源捏脸神器｜🍌 BananaFace｜香蕉造型师｜ZHO
+# 🍌 BananaFace：Your Pocket Stylist｜你的随身造型师
 
+
+<img width="1723" height="1381" alt="Group 386" src="https://github.com/user-attachments/assets/eda5b74e-0305-4f6d-961e-0e178131ef26" />
+
+
+
+## 开源捏脸神器｜🍌 BananaFace｜香蕉造型师｜ZHO
 
 
 ### 选择永远比填空更适合人类！高人物一致性，轻松捏脸/美容，呈现大师造型/肖像！
 
 
-</div>
+
 
 
 <img width="1870" height="1172" alt="screenshot-20250919-234738" src="https://github.com/user-attachments/assets/1cd9c60f-c9fe-4b2c-ad17-db0c89f2af0f" />
@@ -24,7 +30,7 @@
 
 ## 4 大类 44 项专业参数可选
 
-
+</div>
 
 
 https://github.com/user-attachments/assets/a86465e4-23ee-427f-bdee-0ce1e36d70ca
@@ -52,6 +58,10 @@ View your app in AI Studio: https://ai.studio/apps/drive/1lGVhGS4MiVhq5TMMUQ3oB7
 
 
 ## 更新日志
+
+- 20250920
+
+  更新 Slogan
 
 - 20250919
   
