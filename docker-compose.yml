@@ -6,16 +6,16 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3005:3005"
     environment:
       - NODE_ENV=production
-      - PORT=3000
+      - PORT=3005
       - GEMINI_API_KEY=${GEMINI_API_KEY}
     env_file:
       - .env
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))\""]
+      test: ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3005', (res) => { process.exit(res.statusCode === 200 ? 0 : 1) }).on('error', () => process.exit(1))\""]
       interval: 30s
       timeout: 10s
       retries: 3
