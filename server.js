@@ -1,5 +1,4 @@
 import express from 'express';
-import { createServer as createViteServer } from 'vite';
 import { GoogleGenAI, Modality } from "@google/genai";
 import dotenv from "dotenv";
 import path from 'path';
@@ -117,6 +116,7 @@ async function createServer() {
         });
     } else {
         // 创建 Vite 服务器用于开发环境
+        const { createServer: createViteServer } = await import('vite');
         const vite = await createViteServer({
             server: { middlewareMode: true },
             appType: 'spa'
