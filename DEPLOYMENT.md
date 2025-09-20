@@ -18,35 +18,59 @@ cp .env.example .env
 pnpm run dev
 ```
 
-Vite会自动处理前后端的集成，前端运行在5173端口，后端API路由也由Vite处理。
+服务器会自动处理前后端的集成，前端和API都运行在同一端口（默认3000）。
 
 ## 生产部署
 
-### Vercel 部署（推荐）
+### 推荐部署方式
+
+由于项目需要服务器端API处理，推荐使用支持Node.js的平台部署：
+
+#### Railway 部署（推荐）
 
 1. 将代码推送到GitHub
-2. 在Vercel中导入项目
-3. 设置环境变量：
+2. 在Railway中导入项目
+3. Railway会自动检测并使用 `package.json` 中的脚本
+4. 设置环境变量：
    - `GEMINI_API_KEY`: 你的Gemini API key
    - `NODE_ENV`: production
 
-Vercel会自动处理构建和部署，API路由也会正常工作。
+#### Render 部署
 
-### 其他平台部署
+1. 将代码推送到GitHub
+2. 在Render中创建Web Service
+3. 设置构建命令：`npm run build`
+4. 设置启动命令：`npm run start`
+5. 设置环境变量：
+   - `GEMINI_API_KEY`: 你的Gemini API key
+   - `NODE_ENV`: production
 
-对于其他平台（如Netlify, Railway等），你可能需要：
+#### 其他Node.js平台
 
-1. 构建项目：`pnpm run build`
-2. 部署 `dist` 目录
-3. 确保平台支持Node.js环境变量
-4. 设置 `GEMINI_API_KEY` 环境变量
+对于支持Node.js的平台（如Heroku, DigitalOcean App Platform等）：
+
+1. 构建项目：`npm run build`
+2. 启动服务器：`npm run start`
+3. 设置环境变量：`GEMINI_API_KEY`
+4. 确保服务器监听 `process.env.PORT`（默认为3000）
+
+### 本地部署测试
+
+```bash
+# 构建项目
+npm run build
+
+# 启动生产服务器
+npm run start
+```
 
 ## 架构说明
 
-- ✅ 使用Vite的内置中间件处理API路由
+- ✅ 使用Express服务器处理API路由
+- ✅ Vite处理前端构建和开发服务器
 - ✅ API key只在服务器端使用
 - ✅ 前端通过相对路径调用API
-- ✅ 单一部署，无需分离前后端
+- ✅ 支持SPA路由处理
 
 ## 安全注意事项
 

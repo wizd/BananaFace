@@ -1,8 +1,6 @@
 
-const API_BASE_URL =
-  process.env.NODE_ENV === "production"
-    ? "https://your-production-api-url.com" // 请替换为你的生产环境API URL
-    : "";
+// 使用相对路径，服务器会处理 API 路由
+const API_BASE_URL = "";
 
 const handleError = (error: unknown, context: string): never => {
   console.error(`Error in ${context}:`, error);
