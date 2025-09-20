@@ -22,7 +22,46 @@ pnpm run dev
 
 ## 生产部署
 
-### 推荐部署方式
+### Docker 部署（推荐）
+
+本项目现在支持 Docker 部署，提供开箱即用的容器化解决方案：
+
+#### 使用 Docker Compose（推荐）
+
+1. 确保已安装 Docker 和 Docker Compose
+2. 配置环境变量：
+   ```bash
+   cp .env.example .env
+   # 编辑 .env 文件，设置你的 GEMINI_API_KEY
+   ```
+3. 构建并运行容器：
+   ```bash
+   docker-compose up -d
+   ```
+4. 应用将在 http://localhost:3000 上运行
+
+#### 使用 Docker 命令
+
+```bash
+# 构建镜像
+docker build -t bananaface .
+
+# 运行容器
+docker run -p 3000:3000 \
+  -e GEMINI_API_KEY=your_api_key_here \
+  -e NODE_ENV=production \
+  bananaface
+```
+
+#### Docker 部署的优势
+
+- ✅ 环境一致性
+- ✅ 易于扩展和维护
+- ✅ 内置健康检查
+- ✅ 安全性增强（使用非root用户）
+- ✅ 更小的生产镜像（多阶段构建）
+
+### 传统部署方式
 
 由于项目需要服务器端API处理，推荐使用支持Node.js的平台部署：
 
