@@ -108,16 +108,6 @@ async function createServer() {
         }
     });
 
-    // 创建 Vite 服务器用于开发环境
-    const vite = await createViteServer({
-        server: { middlewareMode: true },
-        appType: 'spa'
-    });
-
-    // 使用 Vite 中间件处理前端文件
-    app.use(vite.middlewares);
-
-    // 生产环境：服务静态文件
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.resolve(__dirname, 'dist')));
 
@@ -125,6 +115,15 @@ async function createServer() {
         app.get('*', (req, res) => {
             res.sendFile(path.resolve(__dirname, 'dist/index.html'));
         });
+    } else {
+        // 创建 Vite 服务器用于开发环境
+        const vite = await createViteServer({
+            server: { middlewareMode: true },
+            appType: 'spa'
+        });
+
+        // 使用 Vite 中间件处理前端文件
+        app.use(vite.middlewares);
     }
 
     const port = process.env.PORT || 3000;
